@@ -2,22 +2,25 @@
 # numbers in the list are in order --> 
 # so, it can be possible to search an certain element, by algorithm, whose complexity ~ O(log(n/2))
 
-list = [2,5,7,9,10,12,13,15,17,21]
-x = int(input("Please enter a searched number: "))
-i = 0
-j = len(list)
-m = int(j/2)
-while list[m] != x and i < j:
-	if x > list[m]:
-		i = m+1
-	else:
-		j = m-1
-		m = int((i+j)/2)
-		
-		print(list)
-		if i > j:
-			print('Элемент не найден')
-		else:
-			print('Индекс элемента: ', x, " [", m,"]")
+list = [2,5,7,9,10]
 
-			input("Press the enter key to exit...")
+print(list)
+xs = int(input("Please enter a number: "))
+list_min = 0
+list_max = len(list)
+list_mid = int(list_max/2)
+
+
+while xs < list_max :
+	if xs == list_mid:
+		break
+	elif xs < list[list_mid]:
+		list_min = list_mid - 1
+	else:
+		list_max = list_mid + 1
+	
+	list_mid = int((list_max + list_min)/2)
+
+print('A number ', xs, 'has index: ',list_mid)	
+
+input("Press the enter key to exit...")
