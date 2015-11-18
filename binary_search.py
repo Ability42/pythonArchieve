@@ -1,4 +1,6 @@
 # BINARY search
+# numbers in the list are in order --> 
+# so, it can be possible to search an certain element, by algorithm, whose complexity ~ O(log(n/2))
 
 list = [2,5,7,9,10,12,13,15,17,21]
 x = int(input("Please enter a searched number: "))
