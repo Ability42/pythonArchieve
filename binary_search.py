@@ -2,25 +2,35 @@
 # numbers in the list are in order --> 
 # so, it can be possible to search an certain element, by algorithm, whose complexity ~ O(log(n/2))
 
-list = [2,5,7,9,10]
-
-print(list)
-xs = int(input("Please enter a number: "))
-list_min = 0
-list_max = len(list)
-list_mid = int(list_max/2)
 
 
-while xs < list_max :
-	if xs == list_mid:
-		break
-	elif xs < list[list_mid]:
-		list_min = list_mid - 1
-	else:
-		list_max = list_mid + 1
-	
-	list_mid = int((list_max + list_min)/2)
 
-print('A number ', xs, 'has index: ',list_mid)	
+def bin_search(ulist, xs):
+	list_min = 0
+	list_max = len(ulist) - 1
+	found = False
+
+
+	while list_min <= list_max and not found:
+		list_mid = (list_max + list_min)//2
+
+		if xs == ulist[list_mid]:
+			found = True
+		else:
+			if xs < ulist[list_mid]:
+				list_max = list_mid - 1
+			else:
+				list_min = list_mid + 1
+
+	return found
+
+test_list = [1,4,7,8,21,42,]
+
+print(bin_search(test_list, 1))
+print(bin_search(test_list, 5))
+print(bin_search(test_list, 31))
+print(bin_search(test_list, 42))
+
+
 
 input("Press the enter key to exit...")
